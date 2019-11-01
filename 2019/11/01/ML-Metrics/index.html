@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="Machine Learning,ROC,AUC,">
 
 
 
@@ -79,17 +79,22 @@
 
 
 
-<meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.">
+<meta name="description" content="机器学习分类性能的几种度量指标: ROC曲线, AUC, 正确率, 召回率, F1-Score。(针对二分类)。">
+<meta name="keywords" content="Machine Learning,ROC,AUC">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2019/09/18/hello-world/index.html">
+<meta property="og:title" content="机器学习分类性能度量指标">
+<meta property="og:url" content="http://yoursite.com/2019/11/01/ML-Metrics/index.html">
 <meta property="og:site_name" content="HLR&#39;s Blog">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.">
+<meta property="og:description" content="机器学习分类性能的几种度量指标: ROC曲线, AUC, 正确率, 召回率, F1-Score。(针对二分类)。">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-09-28T15:25:49.298Z">
+<meta property="og:image" content="https://hlr7999.github.io/img/ML-Metrics/confusion.png">
+<meta property="og:image" content="https://hlr7999.github.io/img/ML-Metrics/roc.png">
+<meta property="og:image" content="https://hlr7999.github.io/img/ML-Metrics/roc2.png">
+<meta property="og:updated_time" content="2019-11-01T14:33:54.200Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.">
+<meta name="twitter:title" content="机器学习分类性能度量指标">
+<meta name="twitter:description" content="机器学习分类性能的几种度量指标: ROC曲线, AUC, 正确率, 召回率, F1-Score。(针对二分类)。">
+<meta name="twitter:image" content="https://hlr7999.github.io/img/ML-Metrics/confusion.png">
 
 
 
@@ -119,13 +124,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/09/18/hello-world/">
+  <link rel="canonical" href="http://yoursite.com/2019/11/01/ML-Metrics/">
 
 
 
 
 
-  <title>Hello World | HLR's Blog</title>
+  <title>机器学习分类性能度量指标 | HLR's Blog</title>
   
 
 
@@ -272,7 +277,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/18/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/01/ML-Metrics/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="HLR">
@@ -289,7 +294,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Hello World</h1>
+          <h1 class="post-title" itemprop="name headline">机器学习分类性能度量指标</h1>
         
 
         <div class="post-meta">
@@ -301,8 +306,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-09-18T21:26:01+08:00">
-                2019-09-18
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-11-01T21:15:44+08:00">
+                2019-11-01
               </time>
             
 
@@ -311,6 +316,28 @@
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Machine-Learning/" itemprop="url" rel="index">
+                    <span itemprop="name">Machine Learning</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -339,21 +366,36 @@
       
 
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+        <center>机器学习分类性能的几种度量指标: ROC曲线, AUC, 正确率, 召回率, F1-Score。(针对二分类)。</center>
+
 <a id="more"></a>
 
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+<h3 id="1-混淆矩阵"><a href="#1-混淆矩阵" class="headerlink" title="1. 混淆矩阵"></a>1. 混淆矩阵</h3><p>一个动物预测的混淆矩阵如下。</p>
+<p><img src="https://hlr7999.github.io/img/ML-Metrics/confusion.png" alt="confusion"></p>
+<p>如果混淆矩阵非对角线上元素都是0，分类器就是近乎完美的。</p>
+<h3 id="2-正确率，召回率，-F1-Score"><a href="#2-正确率，召回率，-F1-Score" class="headerlink" title="2. 正确率，召回率， F1-Score"></a>2. 正确率，召回率， F1-Score</h3><p>正确率和召回率针对<strong>二分类问题</strong>，首先了解几个概念。</p>
+<ul>
+<li><code>TP</code>：<code>True Positive</code>，正确预测的正确数目，即实际是正确，预测是正确。</li>
+<li><code>FP</code>：<code>False Positive</code>，错误预测的正确数目，即实际是错误，预测是正确。</li>
+<li><code>TN</code>：<code>True Negative</code>，正确预测的错误数目，即实际是错误，预测是错误。</li>
+<li><code>FN</code>：<code>False Negative</code>，错误预测的错误数目，即实际是正确，预测是错误。</li>
+</ul>
+<p><strong>正确率</strong> ：预测正确的中实际正确的比例<br>$$<br>Precision = \frac{TP}{TP + FP}<br>$$<br><strong>召回率</strong> ：实际正确的中预测正确的比例<br>$$<br>Recall = \frac{TP}{TP + FN}<br>$$<br><strong>F1-Score</strong> ：正确率和召回率的调和平均数<br>$$<br>F_{1} = \frac{2 \cdot Precision \cdot Recall}{Precision + Recall}<br>$$</p>
+<h3 id="3-ROC曲线"><a href="#3-ROC曲线" class="headerlink" title="3. ROC曲线"></a>3. ROC曲线</h3><p>ROC 即 receiver operating characteristic（接收者操作特征曲线）。</p>
+<p>下面是一个ROC曲线。</p>
+<p><img src="https://hlr7999.github.io/img/ML-Metrics/roc.png" alt="roc">。</p>
+<ul>
+<li>横坐标：False positive rate，等于<code>FP / (FP + TN)</code>。</li>
+<li>纵坐标：True positive rate，等于召回率。</li>
+</ul>
+<p><strong>如何画ROC曲线？</strong></p>
+<p>在一个二分类模型中，假设采用逻辑回归分类器，其给出针对每个实例为正类的概率，那么通过设定一个阈值如0.6，概率大于等于0.6的为正类，小于0.6的为负类。对应的就可以算出一组(FPR, TPR)，在平面中得到对应坐标点。随着阈值的逐渐减小，越来越多的实例被划分为正类，但是这些正类中同样也掺杂着真正的负实例，即TPR和FPR会同时增大。阈值最大时，对应坐标点为(0, 0)，阈值最小时，对应坐标点(1, 1)。</p>
+<p>如下面这幅图，(a)图中实线为ROC曲线，线上每个点对应一个阈值。</p>
+<p><img src="https://hlr7999.github.io/img/ML-Metrics/roc2.png" alt="roc"></p>
+<p>(a) 理想情况下，TPR应该接近1，FPR应该接近0。ROC曲线上的每一个点对应于一个threshold，对于一个分类器，每个threshold下会有一个TPR和FPR。比如Threshold最大时，TP=FP=0，对应于原点；Threshold最小时，TN=FN=0，对应于右上角的点(1,1)。<br>(b) P和N得分不作为特征间距离d的一个函数，随着阈值增加，TP和FP都增加。 </p>
+<h3 id="4-AUC"><a href="#4-AUC" class="headerlink" title="4. AUC"></a>4. AUC</h3><p>AUC 即 Area Under Curve，即ROC曲线下的面积，AUC越大，分类器效果越好。</p>
+<p><strong>AUC意味着什么</strong></p>
+<p>首先AUC值是一个概率值，当你随机挑选一个正样本以及一个负样本，当前的分类算法计算得到两个Score值，正样本的Score值大于负样本Score值的概率就是AUC值。当然，AUC值越大，当前的分类算法越有可能计算正样本的Score值大于负样本，即能够更好的分类。</p>
 
       
     </div>
@@ -369,6 +411,16 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/Machine-Learning/" rel="tag"># Machine Learning</a>
+          
+            <a href="/tags/ROC/" rel="tag"># ROC</a>
+          
+            <a href="/tags/AUC/" rel="tag"># AUC</a>
+          
+        </div>
+      
 
       
       
@@ -378,15 +430,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2019/10/08/KMP算法/" rel="next" title="KMP算法">
+                <i class="fa fa-chevron-left"></i> KMP算法
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/10/06/Java-Custom-Collection-Implementations/" rel="prev" title="Java Custom Collection Implementations">
-                Java Custom Collection Implementations <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -520,7 +572,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-混淆矩阵"><span class="nav-number">1.</span> <span class="nav-text">1. 混淆矩阵</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-正确率，召回率，-F1-Score"><span class="nav-number">2.</span> <span class="nav-text">2. 正确率，召回率， F1-Score</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-ROC曲线"><span class="nav-number">3.</span> <span class="nav-text">3. ROC曲线</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-AUC"><span class="nav-number">4.</span> <span class="nav-text">4. AUC</span></a></li></ol></div>
             
 
           </div>
@@ -720,6 +772,26 @@
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 
